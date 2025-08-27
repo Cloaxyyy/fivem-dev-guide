@@ -1,12 +1,12 @@
-# FiveM Development Guide 🚗
+# FiveM Development Guide
 
 > **Learn to create FiveM scripts with examples and best practices**
 
 A comprehensive guide for FiveM script development, featuring tutorials, examples, and best practices for both beginners and advanced developers.
 
-## 📚 Table of Contents
+## Table of Contents
 
-### 🎯 Quick Start
+### Quick Start
 - [Getting Started](docs/getting-started.md) - FiveM server setup, folder structure, and basic tools
 - [Repository Structure](#repository-structure) - Understanding this repository
 - [Contributing](CONTRIBUTING.md) - How to contribute to this guide
@@ -14,21 +14,21 @@ A comprehensive guide for FiveM script development, featuring tutorials, example
 ### 📖 Documentation
 
 #### Beginner Level
-- [🔧 Getting Started](docs/getting-started.md) - Server setup and development environment
-- [🌙 Lua Guide](docs/lua-guide.md) - Lua syntax, events, and FiveM specifics
-- [⚡ JavaScript Guide](docs/js-guide.md) - JavaScript syntax, fxserver exports, and examples
+- [Getting Started](docs/getting-started.md) - Server setup and development environment
+- [Lua Guide](docs/lua-guide.md) - Lua syntax, events, and FiveM specifics
+- [JavaScript Guide](docs/js-guide.md) - JavaScript syntax, fxserver exports, and examples
 
 #### Intermediate Level
-- [🔄 Server vs Client](docs/server-vs-client.md) - Understanding what logic belongs where
-- [🐛 Debugging Guide](docs/debugging.md) - Debug scripts, print logs, and remote tools
-- [✨ Best Practices](docs/best-practices.md) - Code organization and performance tips
+- [Server vs Client](docs/server-vs-client.md) - Understanding what logic belongs where
+- [Debugging Guide](docs/debugging.md) - Debug scripts, print logs, and remote tools
+- [Best Practices](docs/best-practices.md) - Code organization and performance tips
 
 #### Advanced Level
 - ESX Framework Integration *(Coming Soon)*
 - QB-Core Framework Guide *(Coming Soon)*
 - Custom Framework Development *(Coming Soon)*
 
-### 🛠️ Example Scripts
+### Example Scripts
 
 #### Basic Examples
 - [Basic Command](examples/basic-command.lua) - Simple vehicle spawn command
@@ -39,7 +39,7 @@ A comprehensive guide for FiveM script development, featuring tutorials, example
 - [UI Example](examples/ui-example/) - NUI menu implementation
 - [Database Integration](examples/database/) *(Coming Soon)*
 
-## 🏗️ Repository Structure
+## Repository Structure
 
 ```
 fivem-dev-guide/
@@ -62,7 +62,7 @@ fivem-dev-guide/
     └── diagrams/
 ```
 
-## 🚀 Daily Updates
+## Daily Updates
 
 This repository is actively maintained with new content added regularly:
 
@@ -78,7 +78,7 @@ This repository is actively maintained with new content added regularly:
 - 🔄 Pre-built NUI templates
 - 🔄 Performance optimization guides
 
-## 🎯 Learning Path
+## Learning Path
 
 ### For Complete Beginners
 1. Start with [Getting Started](docs/getting-started.md)
@@ -97,23 +97,23 @@ This repository is actively maintained with new content added regularly:
 2. Help improve [Documentation](docs/)
 3. Share your knowledge via [Contributing](CONTRIBUTING.md)
 
-## 🛡️ Requirements
+## 🛡Requirements
 
 - **FiveM Server**: Latest version recommended
 - **Text Editor**: VS Code with Lua/JS extensions
 - **Basic Knowledge**: Programming fundamentals helpful but not required
 
-## 🤝 Community
+## Community
 
 - **Issues**: Report bugs or request features via GitHub Issues
 - **Discussions**: Join community discussions for help and tips
 - **Pull Requests**: Contribute your own examples and improvements
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ⭐ Support
+## Support
 
 If this guide helps you, please consider:
 - ⭐ Starring this repository
@@ -127,3 +127,4 @@ If this guide helps you, please consider:
 
 
 *Last updated: 08/27/2025*
+
