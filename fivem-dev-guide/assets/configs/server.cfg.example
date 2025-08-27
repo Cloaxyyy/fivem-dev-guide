@@ -1,0 +1,252 @@
+# FiveM Server Configuration Example
+# This is a comprehensive example of a server.cfg file for FiveM
+# Copy this file to server.cfg and modify the values according to your needs
+
+# Basic Server Information
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+# Server name as it appears in the server browser
+sv_hostname "^2My FiveM Server ^7| ^3Custom Scripts ^7| ^1RP Friendly"
+
+# Server description
+sv_projectName "My Custom FiveM Server"
+sv_projectDesc "A roleplay server with custom scripts and features"
+
+# Server tags (helps with discoverability)
+sets tags "roleplay, custom, scripts, economy, jobs"
+
+# Locale for the server (affects some game features)
+sets locale "en-US"
+
+# Game build (leave as latest for most compatibility)
+set sv_enforceGameBuild 2944
+
+# Server slots (max players)
+sv_maxclients 32
+
+# License key (required for public servers)
+# Get your key from https://keymaster.fivem.net/
+sv_licenseKey "your_license_key_here"
+
+# Steam Web API key (optional, for Steam integration)
+# Get from https://steamcommunity.com/dev/apikey
+set steam_webApiKey "your_steam_api_key_here"
+
+# Discord integration (optional)
+set discord_applicationId "your_discord_app_id"
+set discord_botToken "your_discord_bot_token"
+
+# Onesync settings (required for 32+ players)
+set onesync on
+set onesync_enableInfinity 1
+set onesync_enableBeyond 1
+set onesync_population 1
+
+# Performance and optimization settings
+set sv_scriptHookAllowed 0
+set sv_useDirectListing true
+set sv_listingIpOverride "your.server.ip"
+
+# Database configuration (MySQL example)
+set mysql_connection_string "mysql://username:password@localhost/database_name?charset=utf8mb4"
+
+# Custom convars for your scripts
+set economy_startingMoney 5000
+set vehicle_maxPerPlayer 3
+set job_salaryInterval 300000
+set debug_mode false
+
+# Admin settings
+set admin_identifiers "steam:110000100000000,license:abcdef1234567890"
+set moderator_identifiers "steam:110000100000001,steam:110000100000002"
+
+# Whitelist settings (if using whitelist)
+set whitelist_enabled false
+set whitelist_url "https://yourwebsite.com/whitelist"
+
+# Logging settings
+set sv_logLevel 2
+set sv_logFile "server.log"
+set sv_logRotation true
+
+# Network settings
+set sv_sendLogToDiscord false
+set sv_discordWebhookUrl "your_discord_webhook_url"
+
+# Resource loading order and configuration
+# Load framework first
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap
+ensure rconlog
+
+# Load essential resources
+ensure [essential]
+
+# Load framework (choose one)
+# ESX Framework
+# ensure [esx]
+# ensure [esx_addons]
+
+# QB-Core Framework
+# ensure [qb]
+# ensure [qb-addons]
+
+# Load custom resources
+ensure [custom]
+ensure [vehicles]
+ensure [jobs]
+ensure [economy]
+ensure [ui]
+
+# Load maps and MLOs
+ensure [maps]
+ensure [mlos]
+
+# Development resources (disable in production)
+# ensure [development]
+# ensure devtools
+# ensure monitor
+
+# Resource-specific configurations
+
+# Chat configuration
+setr chat:theme default
+setr chat:suggestionMode "item"
+setr chat:maxMessages 100
+
+# Voice chat (if using)
+setr voice_useNativeAudio true
+setr voice_useSendingRangeOnly true
+setr voice_defaultCycle "GRAVE"
+setr voice_defaultVolume 0.3
+
+# Vehicle settings
+setr vehicle_density 0.4
+setr ped_density 0.6
+setr scenario_density 0.2
+
+# Weather and time settings
+setr weather_sync true
+setr time_sync true
+setr weather_interval 600000  # 10 minutes
+
+# Economy settings
+setr economy_inflation 1.0
+setr economy_taxRate 0.08
+setr economy_bankInterest 0.02
+
+# Job system settings
+setr jobs_maxPlayers_police 8
+setr jobs_maxPlayers_ems 6
+setr jobs_maxPlayers_mechanic 4
+
+# Housing system settings
+setr housing_maxPerPlayer 2
+setr housing_rentInterval 86400000  # 24 hours
+
+# Vehicle shop settings
+setr vehicleshop_testDriveTime 120000  # 2 minutes
+setr vehicleshop_financeEnabled true
+
+# Permissions system
+add_ace group.admin command allow
+add_ace group.admin command.quit deny
+add_ace group.moderator command.kick allow
+add_ace group.moderator command.ban allow
+
+# Add admins to admin group
+add_principal identifier.steam:110000100000000 group.admin
+add_principal identifier.license:abcdef1234567890 group.admin
+
+# Add moderators to moderator group
+add_principal identifier.steam:110000100000001 group.moderator
+add_principal identifier.steam:110000100000002 group.moderator
+
+# Custom ACE permissions for resources
+add_ace group.admin vehicle.spawn allow
+add_ace group.admin player.teleport allow
+add_ace group.moderator player.kick allow
+add_ace group.vip vehicle.spawn allow
+
+# Resource-specific permissions
+add_ace group.police job.police allow
+add_ace group.ems job.ems allow
+add_ace group.mechanic job.mechanic allow
+
+# Webhook configurations for logging
+set webhook_joins "your_discord_webhook_for_joins"
+set webhook_leaves "your_discord_webhook_for_leaves"
+set webhook_chat "your_discord_webhook_for_chat"
+set webhook_deaths "your_discord_webhook_for_deaths"
+set webhook_admin "your_discord_webhook_for_admin_actions"
+
+# Backup settings
+set backup_interval 3600000  # 1 hour
+set backup_location "./backups/"
+set backup_keepDays 7
+
+# Security settings
+set sv_authMaxVariance 1
+set sv_authMinTrust 5
+set sv_scriptHookAllowed 0
+set sv_fileChecksumMethod "crc64"
+
+# Rate limiting
+set sv_rateLimit_mode 1
+set sv_rateLimit_burst 25
+set sv_rateLimit_sustained 15
+
+# Connection settings
+set sv_connectionTimeout 60000
+set sv_pureLevel 1
+set sv_disableClientReplays true
+
+# Custom loading screen
+loadscreen "https://yourwebsite.com/loadscreen"
+
+# Server banner (optional)
+sets banner_detail "https://yourwebsite.com/banner.png"
+sets banner_connecting "https://yourwebsite.com/connecting.png"
+
+# Social media links
+sets Discord "https://discord.gg/yourserver"
+sets Website "https://yourwebsite.com"
+sets Twitter "@yourservertwitter"
+
+# Custom server info
+sets "Server Owner" "Your Name"
+sets "Server Version" "1.0.0"
+sets "Last Updated" "2024-01-15"
+
+# Restart schedule (using external scheduler)
+# set restart_times "04:00,12:00,20:00"
+# set restart_warning_times "15,10,5,1"
+
+# Maintenance mode
+set maintenance_mode false
+set maintenance_message "Server is currently under maintenance. Please check our Discord for updates."
+
+# Development settings (remove in production)
+# set developer_mode true
+# set debug_prints true
+# set resource_monitor true
+
+# End of configuration
+print "^2Server configuration loaded successfully!^7"
+print "^3Server: ^7" .. GetConvar("sv_hostname", "Unknown")
+print "^3Max Players: ^7" .. GetConvar("sv_maxclients", "Unknown")
+print "^3OneSync: ^7" .. (GetConvar("onesync", "off") == "on" and "^2Enabled^7" or "^1Disabled^7")
+
+# Notes:
+# - Replace all placeholder values (your_license_key_here, etc.) with actual values
+# - Remove or comment out sections you don't need
+# - Test configuration changes on a development server first
+# - Keep sensitive information (API keys, passwords) secure
+# - Regular backups of your configuration are recommended
+# - Monitor server performance and adjust settings as needed
+# - Check FiveM documentation for the latest configuration options
